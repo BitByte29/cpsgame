@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicks game</title>
+    <script type="text/javascript" src="./scripts.js"></script>
+    <script>
+    getData();
+    </script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="playarea">
+        <div class="first">
+            <p><input type="text" name="" id="name" placeholder="Name" required></p>
+            <p><input type="number" name="" id="time" placeholder="Time(s)" required></p>
+            <p style="font-size: 20px;">Score: <span id="score" style="color: blue; font-weight: 800;">0.00</span></p>
+        </div>
+        <div class="second">
+            <button class="buttons" id="start" onclick="start()">Click to begin</button>
+            <button class="buttons" id="clickarea" onclick="cps()" style="display: none;">Click here!</button>
+        </div>  
+    </div>
+    <div class="ups">
+        <div id="scores">
+            <table>
+                <tr><th colspan="3">TOP 10</th></tr>
+                <tr>
+                    <th>Name</th>
+                    <th>Time(s)</th>
+                    <th>Score</th>
+                </tr>
+                <tbody id="tbody">
+    
+                </tbody>
+                <tfoot><th colspan="3">By Hritik..</th></tfoot>
+            </table>
+            
+        </div>
+    </div>
+    
+    
+    <script>
+        
+        clicks = 0;
+        time2 = 1;
+
+        function cps(){
+            clicks += 1
+            console.log(clicks)
+            time = document.getElementById('time').value;
+            
+            if (time2 <= time){
+                val = clicks / time2
+                val = val.toFixed(2)
+                document.getElementById('score').innerHTML = val
+            }
+            else{
+                clearInterval(myInterval);
+                alert(`Your score is  ${val} Clicks/sec`)
+                // d = new Date()
+                // text = d.toDateString(); Can use this also
+                postData(val);
+                // location.reload();
+            }
+
+        }
+        function timer  (){
+            time2 += 1
+        }
+
+        function start(){
+            myInterval = setInterval(timer, 1000);
+            document.getElementById('start').style.display = 'none';
+            document.getElementById('clickarea').style.display = 'block';
+        }
+
+    </script>
+</body>
+</html>
