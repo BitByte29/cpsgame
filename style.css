@@ -63,10 +63,18 @@ body{
     font-weight: 800;
     color: white;
 }
+#head{
+    position: fixed; top: 0;left: 0;width: 100px;
+}
 @media screen and (max-width: 800px) {
     .ups ,#playarea{
       width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
 
+    }
+    #head{
+        position: absolute;
+        width: 100%;
+        z-index: 3000;
     }
   }
 

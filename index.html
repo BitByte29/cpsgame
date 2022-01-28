@@ -7,17 +7,19 @@
     <title>Clicks game</title>
     <script type="text/javascript" src="./scripts.js"></script>
     <script>
-        alert("Let's see how fast can you click..Enter your Name and Time(s) and enjoy.. ")
     getData();
     </script>
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+    <!-- <h2>"Let's see how fast can you click..Enter your Name and Time(s) and enjoy.. "</h2> -->
+    <marquee behavior="" direction="left">Let's see how fast can you click..Enter your Name and Time(s) and enjoy.. </marquee>
     <div id="playarea">
         <div class="first">
             <p><input type="text" name="" id="name" placeholder="Name" required></p>
             <p><input type="number" name="" id="time" placeholder="Time(s)" required></p>
+            <p>Time Remaining:<span id="remt">0s</span></p>
             <p style="font-size: 20px;">Score: <span id="score" style="color: blue; font-weight: 800;">0.00</span></p>
         </div>
         <div class="second">
@@ -58,6 +60,7 @@
                 val = clicks / time2
                 val = val.toFixed(2)
                 document.getElementById('score').innerHTML = val
+                document.getElementById('remt').innerHTML = parseInt(time - time2)+'s'
             }
             else{
                 clearInterval(myInterval);
