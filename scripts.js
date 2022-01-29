@@ -1,8 +1,25 @@
 const api_url2 = "https://click29.herokuapp.com/play";
 ;
+
+function loadData(records = []) {
+	var table_data = "";
+	for(let i=0; i < records.length & i<10; i++) {
+		table_data += `<tr>`;
+		table_data += `<td>${records[i].name}</td>`;
+		table_data += `<td>${records[i].time}</td>`;
+		table_data += `<td>${records[i].score}</td>`;
+		table_data += `<td>`;
+		table_data += `<button class="btn-danger" onclick=deleteData('${records[i]._id}')>Delete</button>`;
+		table_data += '</td>'
+		table_data += `</tr>`;
+		
+	}
+	//console.log(table_data);
+	document.getElementById("tbody").innerHTML = table_data;
+}
 function deleteData(id) {
-	user_input = prompt("Enter Pass to delete..");
-	if(user_input == 'hsp') {
+	user_input = confirm("Are you sure..?");
+	if(user_input ) {
 		fetch(api_url2, {
 			method: "DELETE",
 			headers: {
@@ -20,20 +37,7 @@ function deleteData(id) {
 }
 
 
-function loadData(records = []) {
-	var table_data = "";
-	for(let i=0; i < records.length & i<10; i++) {
-		table_data += `<tr>`;
-		table_data += `<td>${records[i].name}</td>`;
-		table_data += `<td>${records[i].time}</td>`;
-		table_data += `<td>${records[i].score}</td>`;
-		table_data += `<td><button class="btn-danger" onclick=deleteData('${records[i]._id}')>Delete</button></td>`;
-		table_data += `</tr>`;
-		
-	}
-	//console.log(table_data);
-	document.getElementById("tbody").innerHTML = table_data;
-}
+
 
 function postData(val,date) {
 	var name = document.getElementById("name").value;
