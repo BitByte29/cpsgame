@@ -27,7 +27,7 @@ function loadData(records = []) {
 		table_data += `<td>${records[i].name}</td>`;
 		table_data += `<td>${records[i].time}</td>`;
 		table_data += `<td>${records[i].score}</td>`;
-		table_data += `<button class="btn-danger" onclick=deleteData('${records[i]._id}')>Delete</button>`;
+		table_data += `<td><button class="btn-danger" onclick=deleteData('${records[i]._id}')>Delete</button></td>`;
 		table_data += `</tr>`;
 		
 	}

@@ -11,6 +11,12 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
 }
+.btn-danger{
+    padding: 5px;
+    background-color: red;
+    color: white;
+    font-weight: 900;
+}
 #playarea{
     display: flex;
     flex-direction: column;

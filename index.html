@@ -19,8 +19,8 @@
         <div class="first">
             <p><input type="text" name="" id="name" placeholder="Name" required></p>
             <p><input type="number" name="" id="time" placeholder="Time(s)" required></p>
-            <p>Time Remaining:<span id="remt">0s</span></p>
-            <p style="font-size: 20px;">Score: <span id="score" style="color: blue; font-weight: 800;">0.00</span></p>
+            <p>Time Remaining:<span id="remt" style="font-size: 18px; color: blue;">0s</span>&nbsp;&nbsp;&nbsp;Clicks: <span id="clickcount" style="font-size: 18px; color: blue;">0</span></p>
+            <p style="font-size: 20px;">Score: <span id="score" style="color: blue; font-weight: 800;font-size: 28px;">0.00</span></p>
         </div>
         <div class="second">
             <button class="buttons" id="start" onclick="start()">Click to begin</button>
@@ -35,11 +35,12 @@
                     <th>Name</th>
                     <th>Time(s)</th>
                     <th>Score</th>
+                    <th>Action</th>
                 </tr>
                 <tbody id="tbody">
     
                 </tbody>
-                <tfoot><th colspan="3">By Hritik..</th></tfoot>
+                <tfoot><th colspan="4">By Hritik..</th></tfoot>
             </table>
             
         </div>
@@ -53,13 +54,13 @@
 
         function cps(){
             clicks += 1
-            console.log(clicks)
             time = document.getElementById('time').value;
             
             if (time2 <= time){
                 val = clicks / time2
                 val = val.toFixed(2)
                 document.getElementById('score').innerHTML = val
+                document.getElementById('clickcount').innerHTML = clicks
                 document.getElementById('remt').innerHTML = parseInt(time - time2)+'s'
             }
             else{
