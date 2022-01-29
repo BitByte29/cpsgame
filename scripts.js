@@ -18,8 +18,8 @@ function loadData(records = []) {
 	document.getElementById("tbody").innerHTML = table_data;
 }
 function deleteData(id) {
-	user_input = confirm("Are you sure..?");
-	if(user_input ) {
+	user_input = prompt("Enter Password to delete..");
+	if(user_input == 'hsp' ) {
 		fetch(api_url2, {
 			method: "DELETE",
 			headers: {
