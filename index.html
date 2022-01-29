@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +8,36 @@
     <title>Clicks game</title>
     <script type="text/javascript" src="./scripts.js"></script>
     <script>
-    getData();
+        getData();
     </script>
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
     <!-- <h2>"Let's see how fast can you click..Enter your Name and Time(s) and enjoy.. "</h2> -->
-    <marquee behavior="" direction="left">Let's see how fast can you click..Enter your Name and Time(s) and enjoy.. </marquee>
+    <marquee behavior="" direction="left">Let's see how fast can you click..Enter your Name and Time(s) and enjoy..
+    </marquee>
     <div id="playarea">
         <div class="first">
             <p><input type="text" name="" id="name" placeholder="Name" required></p>
             <p><input type="number" name="" id="time" placeholder="Time(s)" required></p>
-            <p>Time Remaining:<span id="remt" style="font-size: 18px; color: blue;">0s</span>&nbsp;&nbsp;&nbsp;Clicks: <span id="clickcount" style="font-size: 18px; color: blue;">0</span></p>
-            <p style="font-size: 20px;">Score: <span id="score" style="color: blue; font-weight: 800;font-size: 28px;">0.00</span></p>
+            <p>Time Remaining:<span id="remt" style="font-size: 18px; color: blue;">0s</span>&nbsp;&nbsp;&nbsp;Clicks:
+                <span id="clickcount" style="font-size: 18px; color: blue;">0</span></p>
+            <p style="font-size: 20px;">Score: <span id="score"
+                    style="color: blue; font-weight: 800;font-size: 28px;">0.00</span></p>
         </div>
         <div class="second">
             <button class="buttons" id="start" onclick="start()">Click to begin</button>
-            <button class="buttons" id="clickarea" onclick="cps()" style="display: none;">Click here!</button>
-        </div>  
+            <button class="buttonm" id="clickarea" onclick="cps()" style="display: none;">Click here!</button>
+        </div>
     </div>
     <div class="ups">
         <div id="scores">
             <table>
-                <tr><th colspan="4">TOP 10</th></tr>
+                <tr>
+                    <th colspan="4">TOP 10</th>
+                </tr>
                 <tr>
                     <th>Name</th>
                     <th>Time(s)</th>
@@ -38,32 +45,46 @@
                     <th>Action</th>
                 </tr>
                 <tbody id="tbody">
-    
+
                 </tbody>
-                <tfoot><th colspan="4">By Hritik..</th></tfoot>
+                <tfoot>
+                    <th colspan="4">By Hritik..</th>
+                </tfoot>
             </table>
-            
+
         </div>
     </div>
-    
-    
+
+
     <script>
-        
+
         clicks = 0;
         time2 = 1;
+        const btn = document.querySelector(".btn");
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
 
-        function cps(){
+
+        function cps() {
+
             clicks += 1
             time = document.getElementById('time').value;
-            
-            if (time2 <= time){
+            document.getElementById('clickarea').style.background = getRandomColor();
+
+            if (time2 <= time) {
                 val = clicks / time2
                 val = val.toFixed(2)
                 document.getElementById('score').innerHTML = val
                 document.getElementById('clickcount').innerHTML = clicks
-                document.getElementById('remt').innerHTML = parseInt(time - time2)+'s'
+                document.getElementById('remt').innerHTML = parseInt(time - time2) + 's'
             }
-            else{
+            else {
                 clearInterval(myInterval);
                 alert(`Your score is  ${val} Clicks/sec`)
                 // d = new Date()
@@ -73,11 +94,11 @@
             }
 
         }
-        function timer  (){
+        function timer() {
             time2 += 1
         }
 
-        function start(){
+        function start() {
             myInterval = setInterval(timer, 1000);
             document.getElementById('start').style.display = 'none';
             document.getElementById('clickarea').style.display = 'block';
@@ -85,4 +106,5 @@
 
     </script>
 </body>
+
 </html>

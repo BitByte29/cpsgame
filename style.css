@@ -72,6 +72,7 @@ body{
 #head{
     position: fixed; top: 0;left: 0;width: 100px;
 }
+
 @media screen and (max-width: 800px) {
     .ups ,#playarea{
       width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
