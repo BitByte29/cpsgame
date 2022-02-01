@@ -36,19 +36,20 @@
         <div id="scores">
             <table>
                 <tr>
-                    <th colspan="4">TOP 10</th>
+                    <th colspan="5">TOP 10</th>
                 </tr>
                 <tr>
                     <th>Name</th>
                     <th>Time(s)</th>
                     <th>Score</th>
+                    <th>Date</th>
                     <th>Action</th>
                 </tr>
                 <tbody id="tbody">
 
                 </tbody>
                 <tfoot>
-                    <th colspan="4">By Hritik..</th>
+                    <th colspan="5">By Hritik..</th>
                 </tfoot>
             </table>
 
@@ -91,8 +92,8 @@
                 if(val > 5 && val <=9){alert(`Your score is ${val} you are an Elephant`)}
                 if (val <=5 ){alert(`Your score is ${val} you are a Elephant`)};
                 // alert(`Your score is ${val} you are a Snail`);
-                // d = new Date()
-                // text = d.toDateString(); Can use this also
+                d = new Date()
+                text = d.toDateString(); 
                 postData(val);
                 // location.reload();
             }
