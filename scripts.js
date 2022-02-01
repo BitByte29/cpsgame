@@ -8,6 +8,7 @@ function loadData(records = []) {
 		table_data += `<td>${records[i].name}</td>`;
 		table_data += `<td>${records[i].time}</td>`;
 		table_data += `<td>${records[i].score}</td>`;
+		table_data += `<td>${records[i].date}</td>`;
 		table_data += `<td>`;
 		table_data += `<button class="btn-danger" onclick=deleteData('${records[i]._id}')>Delete</button>`;
 		table_data += '</td>'
@@ -39,12 +40,15 @@ function deleteData(id) {
 
 
 
-function postData(val,date) {
+function postData(val) {
 	var name = document.getElementById("name").value;
 	var time = document.getElementById("time").value;
 	var score = val;
+
+	var d = new Date();
+	text = d.toDateString(); 
 	
-	data = {name: name, time:time, score: score };
+	data = {name: name, time:time, score: score ,date:text};
 	
 	fetch(api_url2, {
 		method: "POST",

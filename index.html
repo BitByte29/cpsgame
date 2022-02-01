@@ -86,7 +86,11 @@
             }
             else {
                 clearInterval(myInterval);
-                alert(`Your score is  ${val} Clicks/sec`)
+                if(val >= 11){alert(`Your score is ${val} you are a Cheetah`)}
+                if(val>9 && val < 11){alert(`Your score is ${val} you are a Rabbit`)}
+                if(val > 5 && val <=9){alert(`Your score is ${val} you are an Elephant`)}
+                if (val <=5 ){alert(`Your score is ${val} you are a Elephant`)};
+                // alert(`Your score is ${val} you are a Snail`);
                 // d = new Date()
                 // text = d.toDateString(); Can use this also
                 postData(val);
