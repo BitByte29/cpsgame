@@ -18,6 +18,8 @@ function loadData(records = []) {
 	//console.log(table_data);
 	document.getElementById("tbody").innerHTML = table_data;
 }
+
+
 function deleteData(id) {
 	user_input = prompt("Enter Password to delete..");
 	if(user_input == 'hsp' ) {

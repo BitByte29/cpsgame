@@ -22,7 +22,7 @@ body{
     flex-direction: column;
     height: 100%;
     background-color: aquamarine;
-    min-width: 60%;
+    min-width: 50%;
 }
 #playarea .first{
     display: flex;
@@ -55,10 +55,21 @@ body{
 .ups{
     display: flex;
     height: 100%;
-    width: 40%;
+    width: 50%;
     align-items: center;
     justify-content: center;
     background: linear-gradient(rgb(255, 94, 0),rgb(238, 94, 238));
+}
+#delete{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 300;
+}
+#delete button{
+    padding: 0 10px;
+    background-color: red;
+    color: white;
 }
 
 #scores th,td{
