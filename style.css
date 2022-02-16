@@ -83,7 +83,45 @@ body{
 #head{
     position: fixed; top: 0;left: 0;width: 100px;
 }
+/* For the final Display Message: */
+#lastDisplay{
 
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    display: none;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+}
+#lastDisplay #panel{
+    display: flex;
+    border-radius: 15px;
+    padding-top: 20px;
+    height: 70%;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 89, 255);
+}
+#panel img{
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+#panel div{
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#panel div button{
+    background-color: rgb(54, 255, 47);
+    outline: none;
+    border-radius: 30%;
+
+}
 @media screen and (max-width: 800px) {
     .ups ,#playarea{
       width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
@@ -94,5 +132,26 @@ body{
         width: 100%;
         z-index: 3000;
     }
+    th,td{
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+    #lastDisplay{
+        height: 60vh;
+    }
+    #lastDisplay #panel {
+        width: 80%;
+    }
+    #panel div{
+        height: 20%;
+        align-items: center;
+        padding: 10px;
+        display: flex;
+        /* justify-content: space-around; */
+    }
+    #panel h2{
+        font-size: 16px;
+    }
+
   }
 

@@ -15,8 +15,15 @@
 </head>
 
 <body>
-    <div id="delete"><Button onclick="Del()">Delete</Button></div>
-    <!-- <h2>"Let's see how fast can you click..Enter your Name and Time(s) and enjoy.. "</h2> -->
+    <div id="lastDisplay">
+        <div id="panel">
+            <img src="./imgs/cheetahM.jfif" alt="" id= "dispimg">
+            <div>
+                <h2 id="disph" style="color: rgb(0, 255, 21);" >Your score is displayed Here</h2>
+                <button style="padding: 10px; margin-left: 50px;" onclick="closeD()">OK</button>
+            </div>
+        </div>
+    </div>
     <marquee behavior="" direction="left">Let's see how fast can you click..Enter your Name and Time(s) and enjoy..
     </marquee>
     <div id="playarea">
@@ -57,60 +64,7 @@
         </div>
     </div>
 
-
-    <script>
-
-        clicks = 0;
-        time2 = 1;
-        const btn = document.querySelector(".btn");
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-
-        function cps() {
-
-            clicks += 1
-            time = document.getElementById('time').value;
-            document.getElementById('clickarea').style.background = getRandomColor();
-
-            if (time2 <= time) {
-                val = clicks / time2
-                val = val.toFixed(2)
-                document.getElementById('score').innerHTML = val
-                document.getElementById('clickcount').innerHTML = clicks
-                document.getElementById('remt').innerHTML = parseInt(time - time2) + 's'
-            }
-            else {
-                clearInterval(myInterval);
-                if(val >= 11){alert(`Your score is ${val} you are a Cheetah`)}
-                if(val>9 && val < 11){alert(`Your score is ${val} you are a Rabbit`)}
-                if(val > 5 && val <=9){alert(`Your score is ${val} you are an Elephant`)}
-                if (val <=5 ){alert(`Your score is ${val} you are a Elephant`)};
-                // alert(`Your score is ${val} you are a Snail`);
-                d = new Date()
-                text = d.toDateString(); 
-                postData(val);
-                // location.reload();
-            }
-
-        }
-        function timer() {
-            time2 += 1
-        }
-
-        function start() {
-            myInterval = setInterval(timer, 1000);
-            document.getElementById('start').style.display = 'none';
-            document.getElementById('clickarea').style.display = 'block';
-        }
-
-    </script>
+    <script src="./game.js"></script>
 </body>
 
 </html>

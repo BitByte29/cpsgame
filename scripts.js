@@ -3,6 +3,7 @@ const api_url2 = "https://click29.herokuapp.com/play";
 
 function loadData(records = []) {
 	var table_data = "";
+	final = records[records.length-1].score
 	for(let i=0; i < records.length & i<10; i++) {
 		table_data += `<tr>`;
 		table_data += `<td>${records[i].name}</td>`;
