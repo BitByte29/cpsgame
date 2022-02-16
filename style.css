@@ -89,7 +89,6 @@ body{
     height: 100vh;
     position: fixed;
     width: 100vw;
-    display: none;
     background: transparent;
     justify-content: center;
     align-items: center;
@@ -138,6 +137,7 @@ body{
     }
     #lastDisplay{
         height: 60vh;
+        display: none;
     }
     #lastDisplay #panel {
         width: 80%;
