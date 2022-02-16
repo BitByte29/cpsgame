@@ -21,7 +21,6 @@ body{
     display: flex;
     flex-direction: column;
     height: 100%;
-    /* background-color: aquamarine; */
     min-width: 50%;
 }
 #playarea .first{
