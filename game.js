@@ -33,6 +33,7 @@ function display(val){
     else{
         imgs.src = "./imgs/snail.jfif";
         head.innerHTML = `Your score is ${val} you are a Snail.`
+        
     }
     item.style.display = "flex"
 }
@@ -58,6 +59,9 @@ function cps() {
         text = d.toDateString();
         if (val > final) {
             postData(val);
+        }
+        else{
+            
         }
     }
 
