@@ -12,6 +12,7 @@ function getRandomColor() {
 function closeD(){
     var item = document.getElementById("lastDisplay")
     item.style.display = "none"
+    location.reload()
 }
 function display(val){
     var item = document.getElementById("lastDisplay")

@@ -21,7 +21,7 @@ body{
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     min-width: 50%;
 }
 #playarea .first{
@@ -29,11 +29,14 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background: linear-gradient(purple,cyan);
+    background-size: cover;
     height: 50%;
 }
 #playarea .second{
     top: 50%;
-    background-color: bisque;
+    background: linear-gradient(cyan,purple);
+    outline: none;
     height: 50%;
 }
 
@@ -109,6 +112,15 @@ body{
     height: 80%;
     object-fit: cover;
 }
+#panel img,h2{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 #panel div{
     height: 20%;
     display: flex;
