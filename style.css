@@ -1,168 +1,256 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-body{
+
+::placeholder { 
+    color: white;
+    opacity: 1; 
+  }
+  
+  
+body {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 }
-.btn-danger{
-    padding: 5px;
-    background-color: red;
+
+.btn-danger {
+    padding: 10px 20px;
+    background-color: rgba(64, 0, 255, 0.822);
     color: white;
     font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
-#playarea{
+
+#playarea {
     display: flex;
     flex-direction: column;
     height: 100%;
     min-width: 50%;
+    padding: 20px;
 }
-#playarea .first{
+
+#playarea .first {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background: linear-gradient(purple,cyan);
-    background-size: cover;
-    height: 50%;
-}
-#playarea .second{
-    top: 50%;
-    background: linear-gradient(cyan,purple);
-    outline: none;
-    height: 50%;
+    background-color:  rgba(64, 0, 255, 0.45);
+    border-radius: 10px;
+    padding: 20px;
 }
 
-#playarea .second button{
-    height: 100%;
-    width: 100%;
-    background: transparent;
-    font-size: 30px;
-    
+#playarea .first input{
+    padding: 10px;
+    text-align: center;
+    border: 0px;
+    border-bottom: 2px solid black;
+    border-radius: 4px;
+    background-color: transparent;
+    font-size: 18px;
+    width:60%;
 }
-
-#playarea .first input,#playarea .first p{
-    padding: 10px 10px;
+input:focus {
+    outline: none; 
+  }
+#playarea .first p {
+    padding: 10px;
     text-align: center;
     border-radius: 40px;
     font-size: 18px;
+    border: none; 
+    width: 100%;
 }
 
-.ups{
+#playarea .first input:focus{
+    box-shadow: 0 5 px 10px #009879;
+    
+    color: black;
+}
+
+#playarea .second {
     display: flex;
-    height: 100%;
-    width: 50%;
-    align-items: center;
     justify-content: center;
-    background: linear-gradient(rgb(255, 94, 0),rgb(238, 94, 238));
-}
-#delete{
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 300;
-}
-#delete button{
-    padding: 0 10px;
-    background-color: red;
-    color: white;
-}
-
-#scores th,td{
-    border: 1px solid rgb(17, 0, 255);
+    align-items: center;
     border-radius: 10px;
-    padding: 10px 15px;
-    text-align: center;
-    font-weight: 800;
-    color: white;
+    margin-top: 10px;
+    height: 100%;
 }
-#head{
-    position: fixed; top: 0;left: 0;width: 100px;
-}
-/* For the final Display Message: */
-#lastDisplay{
 
-    height: 100vh;
-    position: fixed;
-    width: 100vw;
+#playarea .second button {
+    padding: 10px 20px;
+    font-size: 30px;
     background: transparent;
-    justify-content: center;
-    align-items: center;
+    border: none;
+    cursor: pointer;
+    color: black;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+
 }
-#lastDisplay #panel{
+#lastDisplay {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
-    border-radius: 15px;
-    padding-top: 20px;
-    height: 70%;
-    width: 50%;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 89, 255);
+    z-index: 999;
 }
-#panel img{
+
+#lastDisplay #panel {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 20px;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: #009879; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+#panel img {
     width: 80%;
-    height: 80%;
+    height: auto;
+    max-height: 80%;
     object-fit: cover;
 }
-#panel img,h2{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+
+#panel img,
+#panel h2 {
     user-select: none;
+    pointer-events: none;
 }
 
-#panel div{
-    height: 20%;
+#panel div {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    width: 100%;
 }
-#panel div button{
-    background-color: rgb(54, 255, 47);
+
+#panel div button {
+    padding: 10px 20px;
+    background-color: rgba(64, 0, 255, 0.45);
     outline: none;
-    border-radius: 30%;
-
+    border-radius: 30px;
+    cursor: pointer;
+    width: 50%;
+    color: white;
 }
-@media screen and (max-width: 800px) {
-    .ups ,#playarea{
-      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
 
+
+.ups {
+    display: flex;
+    height: 95%;
+    width: 48.5%;
+    margin: 20px 0px;
+    margin-right: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: rgba(64, 0, 255, 0.45);
+}
+#start{
+    background-color: rgba(64, 0, 255, 0.45);;
+}
+
+#delete button {
+    padding: 10px 20px;
+    background-color: rgba(64, 0, 255, 0.822);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.33);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 10px 12px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+#scores th {
+    background-color: #009879; 
+}
+
+@media screen and (max-width: 800px) {
+    .ups, #playarea {
+        width: 100%;
     }
-    #head{
+
+    #head {
         position: absolute;
         width: 100%;
         z-index: 3000;
     }
-    th,td{
+
+    th,
+    td {
         padding: 5px 10px;
         font-size: 10px;
     }
-    #lastDisplay{
+
+    #lastDisplay {
         height: 60vh;
         display: none;
     }
+
     #lastDisplay #panel {
         width: 80%;
     }
-    #panel div{
+
+    #panel div {
         height: 20%;
         align-items: center;
         padding: 10px;
         display: flex;
-        /* justify-content: space-around; */
     }
-    #panel h2{
+    .ups{
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+    #panel h2 {
         font-size: 16px;
     }
-
-  }
+}
 

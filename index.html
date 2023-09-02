@@ -19,31 +19,31 @@
         <div id="panel">
             <img src="./imgs/cheetahM.jfif" alt="" id= "dispimg">
             <div>
-                <h2 id="disph" style="color: rgb(0, 255, 21);" >Your score is displayed Here</h2>
-                <button style="padding: 10px; margin-left: 50px;" onclick="closeD()">OK</button>
+                <h2 id="disph" >Your score is displayed Here</h2>
+                <button onclick="closeD()">OK</button>
             </div>
         </div>
     </div>
     
     <div id="playarea">
         <div class="first">
-            <p><input type="text" name="" id="name" placeholder="Name" required></p>
-            <p><input type="number" name="" id="time" placeholder="Time(s)" required></p>
-            <p>Time Remaining:<span id="remt" style="font-size: 18px; color: blue;">0s</span>&nbsp;&nbsp;&nbsp;Clicks:
-                <span id="clickcount" style="font-size: 18px; color: blue;">0</span></p>
+            <p><input type="text" name="" id="name" placeholder="Enter your name.." required autofocus></p>
+            <p><input type="number" name="" id="time" placeholder="Time(s)" required autofocus></p>
+            <p>Time Remaining:<span id="remt" style="font-size: 18px; color: rgba(64, 0, 255, 0.82);">0s</span>&nbsp;&nbsp;&nbsp;Clicks:
+                <span id="clickcount" style="font-size: 18px; color: rgba(64, 0, 255, 0.82);">0</span></p>
             <p style="font-size: 20px;">Score: <span id="score"
-                    style="color: blue; font-weight: 800;font-size: 28px;">0.00</span></p>
+                    style="color: rgba(64, 0, 255, 0.82); font-weight: 800;font-size: 28px;">0.00</span></p>
         </div>
         <div class="second">
-            <button class="buttons" id="start" onclick="start()">Click to begin</button>
-            <button class="buttonm" id="clickarea" onclick="cps()" style="display: none;">Click here!</button>
+            <button class="buttons" id="start" style="background-color: rgba(64, 0, 255, 0.45);;" onclick="start()">Click to begin</button>
+            <button class="buttons" id="clickarea" onclick="cps()" style="display: none;">Click here!</button>
         </div>
     </div>
     <div class="ups">
         <div id="scores">
-            <table>
+            <table class="styled-table">
                 <tr>
-                    <th colspan="5">TOP 10</th>
+                    <th colspan="5">TOP <span id="rankers"></span></th>
                 </tr>
                 <tr>
                     <th>Name</th>
@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <script src="./game.js"></script>
+    <!-- <script src="./game.js"></script> -->
 </body>
 
 </html>
