@@ -5,6 +5,15 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#free{
+    position: fixed;
+    bottom:20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
 ::placeholder { 
     color: white;
     opacity: 1; 

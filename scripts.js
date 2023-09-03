@@ -1,4 +1,5 @@
 const api_url2 = "https://cpsgame-back.onrender.com/play";
+// const api_url2 = "http://localhost:5000/play";
 function loadData(records = []) {
   var table_data = "";
   final = records[records.length - 1].score;
@@ -19,21 +20,26 @@ function loadData(records = []) {
 
 function deleteData(id) {
   user_input = prompt("Enter Password to delete..");
-  if (user_input == "hsp") {
-    fetch(api_url2, {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ _id: id }),
+  fetch(api_url2, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ _id: id, pass: user_input }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(` Error: ${response.status} ${response.statusText}`);
+      }
+      return response.json();
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        window.location.reload();
-      });
-  }
+    .then((data) => {
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Deleting error:", error);
+    });
 }
 
 function postData(val) {
@@ -70,9 +76,29 @@ function getData() {
     });
 }
 
-clicks = 0;
-time2 = 1;
-const btn = document.querySelector(".btn");
+function clearList() {
+  var pass = prompt("Enter the password to clear list: ");
+  var deleteApi = api_url2.slice(0, -4) + `deleteall?pass=${pass}`;
+  // console.log(deleteApi);
+
+  fetch(deleteApi)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(
+          `Delete error: ${response.status} ${response.statusText}`
+        );
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // window.location.replace("http://127.0.0.1:5500/cpsgame/index.html");
+      window.location.replace("https://bitbyte29.github.io/cpsgame");
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+}
+
 function getRandomColor() {
   var letters = "0123456789ABCDEF";
   var color = "#";
@@ -81,11 +107,7 @@ function getRandomColor() {
   }
   return color;
 }
-function closeD() {
-  var item = document.getElementById("lastDisplay");
-  item.style.display = "none";
-  location.reload();
-}
+
 function display(val) {
   var item = document.getElementById("lastDisplay");
   imgs = document.getElementById("dispimg");
@@ -104,41 +126,50 @@ function display(val) {
     head.innerHTML = `Your score is ${val} you are a Snail.`;
   }
   item.style.display = "flex";
+  postData(val);
 }
+function closeD() {
+  var item = document.getElementById("lastDisplay");
+  item.style.display = "none";
+  location.reload();
+}
+
+var clicks = 0;
+var time2 = 1;
+var time;
+var val = 0;
+const btn = document.querySelector(".btn");
 
 function cps() {
+  /* Triggers when button is clicked  */
   clicks += 1;
-  time = document.getElementById("time").value;
-  if (!time) {
-    alert("Please enter Time to continue.");
-    window.location.reload();
-  }
   document.getElementById("clickarea").style.background = getRandomColor();
-
-  if (time2 < time) {
-    val = clicks / time2;
-    val = val.toFixed(2);
-    document.getElementById("score").innerHTML = val;
-    document.getElementById("clickcount").innerHTML = clicks;
-    document.getElementById("remt").innerHTML = parseInt(time - time2) + "s";
-  } else {
-    clearInterval(myInterval);
-    display(val);
-    postData(val);
-  }
+  val = clicks / time2;
+  val = val.toFixed(2);
+  document.getElementById("score").innerHTML = val;
+  document.getElementById("clickcount").innerHTML = clicks;
 }
+
 function timer() {
-  time2 += 1;
-  time = document.getElementById("time").value;
+  //Time is defined globally to be used here
+  time2 += 0.1;
   if (time2 < time) {
     document.getElementById("remt").innerHTML =
       parseInt(time - time2 + 1) + "s";
   } else {
+    clearInterval(myInterval);
+    display(val);
   }
 }
 
 function start() {
-  myInterval = setInterval(timer, 1000);
+  const availabletime = document.getElementById("time").value;
+  time = availabletime;
+  if (!time) {
+    alert("Please enter Time to continue.");
+    window.location.reload();
+  }
+  myInterval = setInterval(timer, 100);
   document.getElementById("start").style.display = "none";
   document.getElementById("clickarea").style.display = "block";
 }
