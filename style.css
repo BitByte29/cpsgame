@@ -80,7 +80,6 @@ input:focus {
 
 #playarea .first input:focus{
     box-shadow: 0 5 px 10px #009879;
-    
     color: black;
 }
 
@@ -212,31 +211,33 @@ input:focus {
 }
 
 
-
-.styled-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-}
-
 #scores th {
     background-color: #009879; 
 }
 
-@media screen and (max-width: 800px) {
-    .ups, #playarea {
-        width: 100%;
+@media only screen and (max-width: 1350px) {
+   #playarea {
+        width: 100vw;
+        padding: 0;
+        margin: 10px;
     }
-
+    .ups{
+        width: 100%;
+        margin:0;
+        margin: 10px;
+    }
     #head {
         position: absolute;
         width: 100%;
         z-index: 3000;
     }
+    .styled-table {
+        min-width: 250px;
+    }
 
     th,
     td {
-        padding: 5px 10px;
-        font-size: 10px;
+        font-size: 12px;
     }
 
     #lastDisplay {
@@ -248,16 +249,18 @@ input:focus {
         width: 80%;
     }
 
+    .btn-danger{
+        padding: 5px;
+        font-size: 10px;
+    }
+
     #panel div {
         height: 20%;
         align-items: center;
-        padding: 10px;
+        /* padding: 10px; */
         display: flex;
     }
-    .ups{
-        margin-left: 20px;
-        margin-top: 5px;
-    }
+   
     #panel h2 {
         font-size: 16px;
     }
